@@ -71,14 +71,11 @@ const Loginpage = ({ history }) => {
                                     <span>
                                         아이디
                                     </span>
-                                </label><span className="A">
-                                    <div className="login_logo"></div>
-                                </span>
+                                </label><span className="A" />
                                 <input id="loginId"
-                                value={id}
+                                    value={id}
                                     onChange={handlerIdInput}
                                     placeholder="아이디">
-
                                 </input>
                             </div>
                             <div className={pw === '' ? "loginInputBox1" : "loginInputBox2"}>
@@ -96,8 +93,8 @@ const Loginpage = ({ history }) => {
 
                             </div>
                             <div className="loginBtnBox">
-                                <button type="regist" onClick={handlerRegist}>회원가입</button>
-                                <button type="login">로그인</button>
+                                <button type="button" onClick={handlerRegist}>회원가입</button>
+                                <button type="submit">로그인</button>
                             </div>
                         </form>
                     </div>

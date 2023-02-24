@@ -10,7 +10,7 @@ const MyDiaryEach = ({ list }) => {
 
     return (
         <div className='eachdiary' >
-            <div className='diaryimg'><img src={ image } /></div>
+            <div className='diaryimg_box'><img className='diaryimg' src={ image } /></div>
             <div className='diarydate'>{ list.createdDt }</div>
         </ div>
     );

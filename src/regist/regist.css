@@ -3,21 +3,21 @@
 }
 
 .registPage {
-  width: 1920px;
-  background-image: url('../img/bgB_login.png');
+  /* width: 1920px; */
+  background-image: url('../img/bgB_signup.png');
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
   display: block;
   height: 100vh;
   box-sizing: border-box;
-  /* padding: 200px 100px; */
 }
 
 .registContainer {
   width: 1000px;
-  height: 520px;
+  height: 600px;
   border-radius: 20px;
+  box-shadow: 5px 5px 15px rgb(0, 0, 0, 0.7);
   background-color: rgba(169, 169, 169, 0.4);
   position: absolute;
   left: 50%;
@@ -29,7 +29,7 @@
 .registLogo {
   /* background-color: pink; */
   width: 500px;
-  height: 500px;
+  height: 600px;
   background-image: url('../img/logo_black.png');
   background-position: center;
   background-repeat: no-repeat;
@@ -37,10 +37,11 @@
   float: left;
 }
 
+/* 입력창 */
 .registPage .registInput {
   /* background-color: skyblue; */
   width: 500px;
-  height: 500px;
+  height: 600px;
   padding: 0px 100px 0px 20px;
   float: left;
 }
@@ -53,7 +54,7 @@
   transform: translate(-50%, -50%);
 }
 
-.registForm input {
+/* .registForm input {
   font-family: 'Noto Sans KR', 'Noto Sans Korean', "Nanum Gothic", sans-serif !important;
   -webkit-appearance: none;
   -webkit-border-radius: 0;
@@ -61,45 +62,28 @@
   border: 0;
   outline: none;
   font-size: 10px;
-}
+} */
 
-.registInputBox1 {
-  width: 100%;
-  box-sizing: border-box;
-  /* margin: 0 auto; */
-  position: relative;
-  margin-bottom: 0px;
-}
-
+/* box1 */
+.registInputBox1,
 .registInputBox2 {
   width: 100%;
   box-sizing: border-box;
-  /* margin: 0 auto; */
   position: relative;
-  margin-bottom: 0px;
 }
 
-.registInputBox1 input {
-  width: 100%;
-  border: 1px solid #dddddd !important;
-  font-size: 1rem;
-  line-height: 1.45;
-  letter-spacing: -0.04rem;
-  border-radius: 8px;
-  padding: 16px 0px 18px 19px;
-  padding-left: 30px;
-}
-
+.registInputBox1 input,
 .registInputBox2 input {
   width: 100%;
-  border: 1px solid #dddddd !important;
-  font-size: 1rem;
-  line-height: 1.45;
-  letter-spacing: -0.04rem;
-  border-radius: 8px;
-  padding: 16px 0px 18px 19px;
-  padding-left: 30px;
-  /* margin-top: 12px; */
+  height: 60px;
+  padding-left: 40px;
+  padding-top: 9px;
+  border-radius: 10px;
+  border: 2px solid gray;
+  box-shadow: 3px 3px 5px gray;
+  font-family: 'Tenada';
+  font-size: 16px;
+  outline: none;
 }
 
 .registInputBox1 label {
@@ -107,78 +91,50 @@
   position: absolute;
   top: 24px;
   left: 25px;
-  padding: 5px;
-  font-size: 14px;
-  color: #888;
-  font-weight: bold;
+  padding: 8px;
 }
 
+/* box2 */
+/* .registInputBox2 {
+  width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+.registInputBox2 input {
+  width: 100%;
+    height: 60px;
+    padding-left: 40px;
+    padding-top: 10px;
+    border-radius: 10px;
+    border: 2px solid gray;
+    box-shadow: 3px 3px 5px gray;
+    font-family: 'Tenada';
+    font-size: 16px;
+    outline: none;
+} */
 .registInputBox2 label {
   display: inline-block;
   position: absolute;
-  left: 25px;
-  padding: 5px;
+  top: 0px;
+  left: 40px;
   background: rgba(255, 255, 255, 0);
-  font-size: 10px;
-  color: #888;
-  font-weight: bold;
 }
 
 /* 입력시 작게 뜨는 글씨 */
-.registInputBox1 label span {
-  color: #979797;
-  vertical-align: -1px;
-}
-
+.registInputBox1 label span,
 .registInputBox2 label span {
-  color: gray;
-  vertical-align: -1px;
+  font-family: 'OSeongandHanEum';
+  font-size: 10px;
+  font-weight: bold;
+  color: #979797;
 }
 
-/* 가입하기 버튼 */
-#registButton1 {
-  width: 80px;
-  height: 35px;
-  border-radius: 50px;
-  border: 3px solid#A9A9A9;
-  transition: all .5s ease;
-  background-color: black;
-  color: white;
-  font-size: 14px;
-  float: right;
-  margin-left: 15px;
-  cursor: pointer;
-}
-
-#registButton2{
-  width: 80px;
-  height: 35px;
-  border-radius: 50px;
-  border: 3px solid#A9A9A9;
-  transition: all .5s ease;
-  background-color: black;
-  color: white;
-  font-size: 14px;
-  float: right;
-  margin-left: 15px;
-}
-
-#registButton1:hover {
-  background-color: #A9A9A9;
-  border: 3px solid black;
-  box-shadow: 0px 0px 8px black;
-  color: black;
-  font-size: 15px;
-  text-shadow: rgba(255, 255, 255, 0.4);
-}
-
-.checkCircle {
-  /* background-color: aquamarine; */
-  position: absolute;
-  right: 3%;
-  top: 40%;
-  width: 10%;
-}
+/* .registInputBox2 label span {
+  font-family: 'OSeongandHanEum';
+    font-size: 10px;
+    font-weight: bold;
+    color: #979797;
+} */
 
 /* placeholder 아이콘 */
 .A {
@@ -196,19 +152,70 @@
   font-weight: bold;
 }
 
-.confirmMsg{
-  font-size: 0.7rem;
-  position: relative;
-  width: 100%;
-  height: 30px;
+.checkCircle {
+  position: absolute;
+  right: 3%;
+  top: 40%;
+  width: 10%;
 }
 
-.confirmMsg2{
-  font-size: 0.7rem;
+.confirmMsg,
+.confirmMsg2 {
+  font-family: 'OSeongandHanEum';
+  font-size: 10px;
+  font-weight: bold;
   position: relative;
-  width: 100%;
+  width: 98%;
   height: 30px;
+  padding: 5px 0px 0px 5px;
+  margin: auto;
 }
+
+/* 가입하기 버튼 */
+#registButton1,
+#registButton2 {
+  width: 90px;
+  height: 40px;
+  border-radius: 50px;
+  border: 3px solid#A9A9A9;
+  transition: all .5s ease;
+  background-color: black;
+  color: white;
+  font-family: 'OSeongandHanEum';
+  font-weight: bold;
+  font-size: 14px;
+  float: right;
+  margin-left: 16px;
+}
+#registButton1 {
+  cursor: pointer;
+}
+
+/* #registButton2{
+  width: 90px;
+    height: 40px;
+    border-radius: 50px;
+    border: 3px solid#A9A9A9;
+    transition: all .5s ease;
+    background-color: black;
+    color: white;
+    font-family: 'OSeongandHanEum';
+    font-weight: bold;
+    font-size: 14px;
+    float: right;
+    margin-left: 16px;
+    cursor: pointer;
+} */
+
+#registButton1:hover {
+  background-color: #A9A9A9;
+  border: 3px solid black;
+  box-shadow: 0px 0px 8px black;
+  color: black;
+  font-size: 18px;
+}
+
+
 
 @media (max-width: 1920px) {
   .loginPage {

@@ -64,6 +64,32 @@ const MyDiaryList = ({ match, history }) => {
             })
     }, []);
 
+
+    //{ 변수 }TodoList 기본 데이터(서버에서 GET으로 받아와야 함.)setTodos(response.data.list)
+    const [todos, setTodos] = useState([]);
+
+    //{ 함수 }Todos를 받아오는 함수 설정, useEffect할 때 getTodos함수 실행 필요!!
+    async function getTodos(){
+        try {
+            const response = await axios.get('http://localhost:8080/api/someus/private/goal',
+            {   headers: { 'Authorization': `Bearer ${sessionStorage.getItem('token')}` },
+                params:{
+                    memberId: memberId,
+                    goalDate: startDate 
+                }
+            });
+            console.log('response.data=',response.data);
+            const dataA = response.data;
+            setTodos(dataA);
+            //데이터가 저장되어도 한박자 느리게 반응되니까 useCallback으로 조정해야 할 듯.
+            console.log('response.data=todos');
+            console.log(todos);
+        } catch(error){
+            console.log(error);
+            return;
+        };
+    };
+    
     // 요일의 이름 반환
     const getDayName = (date) => {
         return date.toLocaleDateString('ko-KR', {
@@ -132,7 +158,7 @@ const MyDiaryList = ({ match, history }) => {
         return list && list.map((lst, index) => {
             return (
                 <div key={index} id={lst.diaryId}>
-                    {modalState[index] && <Modal_Mydiary match={match} closeModal={() => closeModal(index)} id={lst.diaryId} list={lst}/>}
+                    {modalState[index] && <Modal_Mydiary match={match} closeModal={() => closeModal(index)} id={lst.diaryId} list={lst} />}
                     <button className="diaryeachbutton" type="button" value={lst.diaryId} onClick={() => handlerClickDetail(index)}>
                         <MyDiaryEach list={lst} />
                     </button>
@@ -145,48 +171,45 @@ const MyDiaryList = ({ match, history }) => {
         <>
             <NaviDiary history={history} />
             <div className='diarylist_background'>
-                <div className='body' >
-                    <div className="calendar-container">
-                        <div className="calendar-box">
-                            <DatePicker
-                                // 시작 날짜 셋팅
-                                // selected={startDate}
-                                locale={ko}
-                                selected={selectedDate}
-                                // 날짜가 클릭되면 해당 날짜로 이동
-                                onChange={handlerChangeDate}
-                                inline
-                                // 토, 일 색깔 변경
-                                dayClassName={date =>
-                                    getDayName(createDate(date)) === '토' ? "saturday"
-                                        :
-                                        getDayName(createDate(date)) === '일' ? "sunday" : undefined
-                                }
-                                todayButton="today"
-                            />
-                        </div>
-                        <div className="todo-box">
-                            <TodoList />
-                        </div>
+                <div className="calendar-container">
+                    <div className="calendar-box">
+                        <DatePicker
+                            // 시작 날짜 셋팅
+                            // selected={startDate}
+                            locale={ko}
+                            selected={selectedDate}
+                            // 날짜가 클릭되면 해당 날짜로 이동
+                            onChange={handlerChangeDate}
+                            inline
+                            // 토, 일 색깔 변경
+                            dayClassName={date =>
+                                getDayName(createDate(date)) === '토' ? "saturday"
+                                    :
+                                    getDayName(createDate(date)) === '일' ? "sunday" : undefined
+                            }
+                            todayButton="today"
+                        />
                     </div>
-                    <div className='diary-container'>
-                        <div>
-                            <p className="name_diary">{memberName}의 일기</p>
-                            <p className='date'>{startDate.getMonth() + 1} {startDate.toLocaleString("en-US", { month: "long" })}</p>
-                        </div>
+                    <div className="todo-box">
+                        <TodoList />
+                    </div>
+                </div>
+                <div className='diary-container'>
+                    <div>
+                        <p className="name_diary">{memberName}의 일기</p>
+                        <p className='date'>{startDate.getMonth() + 1} {startDate.toLocaleString("en-US", { month: "long" })}</p>
+                    </div>
 
-                        <button className='write' onClick={handlerClickWrite}>
-                            <div className='write-button' />
-                            <span> 일기쓰기 </span>
-                        </button>
+                    <button className='private_write' onClick={handlerClickWrite}>
+                        <div className='privateWrite-button' />
+                        <span className="private_writetext"> 일기쓰기 </span>
+                    </button>
 
-                        <div className='diary'>
-                            <div className="diaryWrap">{list && result()}</div>
-                        </div>
+                    <div className='diary'>
+                        <div className="diaryWrap">{list && result()}</div>
                     </div>
                 </div>
             </div>
-
         </>
     );
 

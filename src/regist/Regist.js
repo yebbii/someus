@@ -147,7 +147,7 @@ const Regist = ({ history }) => {
         <>
             <div className="registPage">
                 <div className="registContainer">
-                    <div className="loginLogo" />
+                    <div className="registLogo" />
                     <div className="registInput">
                         <div className="registForm">
                             <div className={form.id === '' ? "registInputBox1" : "registInputBox2"}>

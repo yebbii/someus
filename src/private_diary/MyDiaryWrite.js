@@ -44,10 +44,10 @@ const MyDiaryWrite = ({ history }) => {
         for (let i = 0; i < weather.length; i++) {
             result.push(
                 <>
-                    <img src={weather[i].weatherId == weatherActive
+                    <img className="privateweather_img"
+                        src={weather[i].weatherId == weatherActive
                         ? `/img/weatherC_${weather[i].weatherId}.png`
                         : `/img/weather_${weather[i].weatherId}.png`}
-                        style={{ width: '30px', height: '30px' }}
                         onClick={toggleWeatherActive}
                         alt={weather[i].weatherId} />
                 </>
@@ -61,11 +61,10 @@ const MyDiaryWrite = ({ history }) => {
         for (let i = 0; i < mood.length; i++) {
             result.push(
                 <>
-                    <img
+                    <img className="privatemood_img"
                         src={mood[i].moodId == moodActive
                             ? `/img/mood_${mood[i].moodId}.png`
                             : `/img/mood_${mood[i].moodId}.png`}
-                        style={{ width: '30px', height: '30px' }}
                         onClick={toggleMoodActive}
                         alt={mood[i].moodId} />
                 </>
@@ -190,18 +189,17 @@ const MyDiaryWrite = ({ history }) => {
                                 </div>
                             </div>
 
-                            <div className='writebody'>
-                                <textarea placeholder="오늘의 하루를 입력해 주세요."
-                                    value={contents}
-                                    onChange={handlerOnChangeContents}></textarea>
-                            </div>
+                            
+                            <textarea className="writebody_private"
+                                placeholder="오늘의 하루를 입력해 주세요."
+                                value={contents}
+                                onChange={handlerOnChangeContents}></textarea>
+                            
 
                             <div className='writefooter'>
-                                <div className='fileBox'>
-                                    <input type='file' id='file' onChange={handleChangeFile} />
-                                </div>
+                                <input className='fileBox_private' type='file' id='file' onChange={handleChangeFile} />
                             </div>
-                            <input className='submit' type='submit' value='제출' />
+                            <input className='submit_private' type='submit' value='제출' />
                         </div>
                     </form>
                 </div>

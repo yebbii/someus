@@ -118,13 +118,6 @@
     background-repeat: no-repeat;
 }
 
-/* 하트로고 끝 */
-@font-face {
-    font-family: 'OSeongandHanEum';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OSeongandHanEum.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 /* 등록버튼 */
 .addgroup_box button {
     width: 150px;
@@ -138,7 +131,7 @@
     color: white;
     font-family: 'OSeongandHanEum';
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .addgroup_box button:hover {

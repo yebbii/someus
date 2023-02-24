@@ -15,8 +15,8 @@
 
 /* 버튼서체 */
 @font-face {
-    font-family: 'LeferiPoint-SpecialA';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-SpecialA.woff') format('woff');
+    font-family: 'OSeongandHanEum';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OSeongandHanEum.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -30,7 +30,6 @@
   display: block;
   padding: 80px 100px;
   box-sizing: border-box;
-
 }
 .groupshare_background::after {
     display: block;
@@ -38,21 +37,13 @@
     clear: both;
 }
 
-/* .body1 {
-    border: 3px solid orange;
-    display: inline-block;
-    padding-top: 50px;
-    width: 100%;
-} */
-
 /* 달력 부분 */
 .groupcalendar-container {
     float: left;
     height: 100vh;
     width: 28%;
-    box-sizing: border-box;
-    border-right: 3px solid #14B21F;
     padding-right: 70px;
+    border-right: 3px solid #14B21F;
 }
 /* .groupcalendar-container::after { display: block; content: ""; clear: both;} */
 .groupcalendar-box {
@@ -120,7 +111,7 @@
 .groupdiary-container .group_write .writebutton_text {
     display:none;
     font-weight: 500;
-    font-family: 'LeferiPoint-SpecialA';
+    font-family: 'OSeongandHanEum';
     font-size: 16px;
     color: white;
     opacity: 0;

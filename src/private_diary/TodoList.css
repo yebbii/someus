@@ -18,6 +18,8 @@
     padding: 15px;
     border-radius: 15px;
     text-align: center;
+    border: 2px solid white;
+    box-shadow: 5px 5px 12px rgba(255, 192, 203, 0.5);
 }
 
 /* 투두 헤더 */
@@ -39,6 +41,7 @@
     font-size: 15px;
     font-weight: 700;
     float: right;
+    cursor: pointer;
 }
 
 /* 투두 입력 */
@@ -55,6 +58,7 @@
 .TodoListCheckBox ul li {
     height: 40px;
     margin-bottom: 5px;
+    cursor: pointer;
 }
 
 .TodoListCheckBox ul li input {

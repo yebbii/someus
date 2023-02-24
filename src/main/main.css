@@ -11,9 +11,10 @@
   background-position: center;
   background-size: cover;
   display: block;
-  height: 1080px;
+  height: 850px;
   box-sizing: border-box;
-  padding-top: 800px; 
+  padding-top: 700px; 
+  overflow: hidden;
 }
 .main_background::after {
   display: block;
@@ -25,8 +26,9 @@
 .main_background h1 {
   font-family: 'Yeongdo-Rg';
   margin: 0px auto;
-  width: 380px;
-  font-size: 1.6em;
+  width: 480px;
+  line-height: 50px;
+  font-size: 32px;
   text-align: center;
 }
 

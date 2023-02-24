@@ -1,7 +1,24 @@
-* { box-sizing: border-box; }
+/* 버튼서체 */
+@font-face {
+    font-family: 'OSeongandHanEum';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OSeongandHanEum.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/* 타이틀 서체 */
+@font-face {
+    font-family: 'Tenada';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+}
 
 .loginPage {
-    width: 1920px;
+    /* width: 1920px; */
     background-image: url('../img/bgB_login.png');
     background-attachment: fixed;
     background-position: center;
@@ -9,13 +26,13 @@
     display: block;
     height: 100vh;
     box-sizing: border-box;
-    /* padding: 200px 100px; */
 }
 
 .loginContainer {
     width: 1000px;
     height: 500px;
     border-radius: 20px;
+    box-shadow: 5px 5px 15px rgb(0, 0, 0, 0.7);
     background-color: rgba(169, 169, 169, 0.4);
     position: absolute;
     left: 50%;
@@ -37,7 +54,6 @@
 
 /* 입력창 */
 .loginPage .loginInput {
-    /* background-color: skyblue; */
     width: 500px;
     height: 500px;
     padding: 0px 100px 0px 20px;
@@ -47,122 +63,92 @@
 .loginForm {
     width: 100%;
     position: relative;
-    top : 50%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.loginForm input {
-    font-family: 'Noto Sans KR', 'Noto Sans Korean', "Nanum Gothic", sans-serif !important;
+/* .loginForm input {
+    font-family: 'Tenada';
+    font-size: 16px;
     -webkit-appearance: none;
     -webkit-border-radius: 0;
     border-radius: 0;
     border: 0;
     outline: none;
-    font-size: 10px;
+} */
+
+#loginId, #loginPassword {
+    margin-bottom: 30px;
 }
 
-/* 버튼 */
-.loginBtnBox button {
-    width: 80px;
-    height: 35px;
-    border-radius: 50px;
-    border: 3px solid#A9A9A9;
-    transition: all .5s ease;
-    background-color: black;
-    color: white;
-    font-size: 14px;
-    float: right;
-    margin-left: 15px;
-    cursor: pointer;
-}
-
-.loginBtnBox button:hover {
-    background-color: #A9A9A9;
-    border: 3px solid black;
-    box-shadow: 0px 0px 8px black;
-    color: black;
-    font-size: 15px;
-    text-shadow: rgba(255, 255, 255, 0.4);
-}
-
+/* box1 */
 .loginInputBox1 {
     width: 100%;
     box-sizing: border-box;
-    /* margin: 0 auto; */
     position: relative;
 }
-
-.loginInputBox2 {
-    width: 100%;
-    box-sizing: border-box;
-    /* margin: 0 auto; */
-    position: relative;
-}
-
-#loginId {
-    margin-bottom: 25px; 
-}
-
-#loginPassword {
-    margin-bottom: 25px;
-}
-
 .loginInputBox1 input {
     width: 100%;
-    border: 1px solid #dddddd !important;
-    font-size: 1rem;
-    line-height: 1.45;
-    letter-spacing: -0.04rem;
-    border-radius: 8px;
-    padding: 16px 0px 18px 19px;
-    padding-left: 30px;   
+    height: 60px;
+    padding-left: 40px;
+    padding-top: 9px;
+    border-radius: 10px;
+    border: 2px solid gray;
+    box-shadow: 3px 3px 5px gray;
+    font-family: 'Tenada';
+    font-size: 16px;
+    outline: none;
 }
-
-.loginInputBox2 input {
-    width: 100%;
-    border: 1px solid #dddddd !important;
-    font-size: 1rem;
-    line-height: 1.45;
-    letter-spacing: -0.04rem;
-    border-radius: 8px;
-    padding: 16px 0px 18px 19px;
-    padding-left: 30px;
-    /* margin-top: 12px; */
-}
-
 .loginInputBox1 label {
     display: none;
     position: absolute;
     top: 24px;
     left: 25px;
-    padding: 5px;
-    font-size: 14px;
-    color: #888;
-    font-weight: bold;
+    padding: 8px;
 }
 
+/* box2 */
+.loginInputBox2 {
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+.loginInputBox2 input {
+    width: 100%;
+    height: 60px;
+    padding-left: 40px;
+    padding-top: 10px;
+    border-radius: 10px;
+    border: 2px solid gray;
+    box-shadow: 3px 3px 5px gray;
+    font-family: 'Tenada';
+    font-size: 16px;
+    outline: none;
+}
 .loginInputBox2 label {
     display: inline-block;
     position: absolute;
-    /* top: 0px; */
-    left: 15px;
-    padding: 5px;
+    top: 0px;
+    left: 40px;
     background: rgba(255, 255, 255, 0);
-    font-size: 10px;
-    color: #888;
-    font-weight: bold;
 }
 
 /* 입력시 작게 뜨는 글씨 */
 .loginInputBox1 label span {
+    font-family: 'OSeongandHanEum';
+    font-size: 10px;
+    font-weight: bold;
     color: #979797;
-    vertical-align: -1px;
+    /* vertical-align: -1px; */
 }
 
 .loginInputBox2 label span {
-    color: gray;
-    vertical-align: -1px;
+    font-family: 'OSeongandHanEum';
+    font-size: 10px;
+    font-weight: bold;
+    color: #979797;
+    /* vertical-align: -1px; */
 }
 
 /* placeholder 아이콘 */
@@ -175,10 +161,32 @@
     background-size: 23px 23px;
     position: absolute;
     top: 18px;
-    left: 5px;
-    font-size: 14px;
-    color: #888;
+    left: 10px;
+}
+
+/* 버튼 */
+.loginBtnBox button {
+    width: 90px;
+    height: 40px;
+    border-radius: 50px;
+    border: 3px solid#A9A9A9;
+    transition: all .5s ease;
+    background-color: black;
+    color: white;
+    font-family: 'OSeongandHanEum';
     font-weight: bold;
+    font-size: 14px;
+    float: right;
+    margin-left: 16px;
+    cursor: pointer;
+}
+
+.loginBtnBox button:hover {
+    background-color: #A9A9A9;
+    border: 3px solid black;
+    box-shadow: 0px 0px 8px black;
+    color: black;
+    font-size: 18px;
 }
 
 @media (max-width: 1920px) {

@@ -1,19 +1,26 @@
+/* 버튼서체 */
 @font-face {
-  font-family: 'BMDOHYEON';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+  font-family: 'OSeongandHanEum';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OSeongandHanEum.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
+*{ box-sizing: border-box;}
 
 .react-datepicker {
-  font-size: 13px !important;
-  /* margin-left: 50px !important; */
-  background-color: rgba(255, 255, 255, 0.9);
+  font-size: 16px !important;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  border-radius: 20px;
+  border: 2px solid pink;
+  box-shadow: 5px 5px 12px rgba(255, 192, 203, 0.5);
 }
 
+/* 월 */
 .react-datepicker__current-month {
-  font-size: 15px !important; 
-  
+  padding-top: 10px;
+  font-size: 18px !important; 
+  font-weight: bold;
 }
 
 /* 화면에 따라 달력 가리기 */
@@ -22,29 +29,62 @@
   overflow-x: hidden !important;
   margin-bottom: 10px;
 }
+
 /* 달력 헤더(월, 년도 뜨는 부분) */
 .react-datepicker__header {
   padding-top: 15px !important; 
-  background-color: rgba(255, 255, 255, 0.3) !important;
-  font-family: 'BMDOHYEON';
-  font-weight: normal;
+  background-color: rgba(255, 213, 213, 0) !important;
+  font-family: 'OSeongandHanEum';
+  font-weight: bold;
+  border: none;
+}
+
+.react-datepicker__day-name {
+  color: white;
+  font-weight: bold;
+}
+
+.react-datepicker__day-names {
+  background-color: rgb(238, 57, 87);
+  border: none;
+  width: 100%;
+  margin: 10px 0px 5px 0px;
+}
+
+.react-datepicker__week {
+  width: 376px;
+  height: 50px;
+  line-height: 50px;
 }
 
 .react-datepicker__navigation {
   top: 20px !important; 
 }
 
-.react-datepicker__day-name, .react-datepicker__day {
+.react-datepicker__day-name {
   margin: 0.5rem !important; 
-  font-family: 'BMDOHYEON';
+  font-family: 'OSeongandHanEum';
+}
+
+.react-datepicker__day {
+  font-family: 'OSeongandHanEum';
+  margin: 0px 8px;
+  height: 30px;
+  line-height: 30px;
+  width: 30px;
+  /* padding: 2px; */
+}
+
+.react-datepicker__day:hover {
+ background-color: pink !important;
 }
 
 .saturday {
-  color: rgb(0, 0, 255) !important; 
+  color: rgb(34, 121, 252) !important; 
 }
 
 .sunday {
-  color: rgb(255, 0, 0) !important; 
+  color: rgb(241, 72, 60) !important; 
 }
 
 .react-datepicker__day--disabled {
@@ -59,21 +99,22 @@
 /* today 버튼 */
 .react-datepicker__today-button {
   width: 70px !important;
-  vertical-align: middle !important;
+  /* vertical-align: middle !important; */
   line-height: 20px !important;
-  background-color: white;
-  border: 1px solid #cccccc !important;
-  border-radius: 3px !important;
+  background-color: rgb(252, 217, 223);
+  border: 2px dotted rgb(238, 57, 87) !important;
+  border-radius: 15px !important;
   margin-left: auto !important;
   margin-right: auto !important;
   margin-bottom: 20px !important;
   margin-top: 50px !important;
   text-align: center;
-  font-family: 'BMDOHYEON';
+  font-family: 'OSeongandHanEum';
+  color: rgb(238, 57, 87);
 }
 
 .react-datepicker__current-month {
-  margin-bottom: 20px !important;
+  margin-bottom: 25px !important;
 }
 
 
@@ -82,17 +123,18 @@
   margin-left: 0px !important;
 }
 
-.react-datepicker__day-names {
-  margin-left: 2px !important;
-}
 
 .react-datepicker__day-name,
 .react-datepicker__day,
 .react-datepicker__time-name {
-  height: 1.7rem;
+  width: 30px;
+  height: 30px;
 }
+
+/* 날짜 선택 */
 .react-datepicker__day--selected {
-  border: 2px solid black !important;
+  border: 2px dotted rgb(199, 138, 218) !important;
+  background-color: pink;
   background: none !important;
   border-radius: 50% !important;
   font-weight: bold !important;
@@ -101,15 +143,11 @@
 }
 
 .react-datepicker__day--today {
-  border: 2px solid #B4D4FC !important;
+  border: 2px dashed rgb(238, 57, 87) !important;
   background: none !important;
   border-radius: 50% !important;
   color: black !important;
   font-weight: bold !important;
-  /* box-sizing: border-box !important; */
 }
 
-react-datepicker__today-button {
-  margin-left: 50px !important;
-}
 

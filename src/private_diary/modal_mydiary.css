@@ -1,10 +1,4 @@
-@font-face {
-  font-family: 'BMDOHYEON';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
+/* 타이틀 서체 */
 @font-face {
   font-family: 'Tenada';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
@@ -22,8 +16,8 @@
 
 /* 버튼서체 */
 @font-face {
-  font-family: 'LeferiPoint-SpecialA';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-SpecialA.woff') format('woff');
+  font-family: 'OSeongandHanEum';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OSeongandHanEum.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -57,13 +51,11 @@
   height: 100%;
   padding: 30px 0px 30px 40px;
   float: left;
-  /* background-color: aqua; */
   position: relative;
 }
 
 /* 모달 글쓴페이지 */
 .modalRightHeader {
-  /* background-color: skyblue; */
   width: 100%;
   height: 80px;
   line-height: 60px;
@@ -78,7 +70,9 @@
 }
 
 /* 날씨 기분 */
-.modalRightHeaderRight { float: right; }
+.modalRightHeaderRight {
+  float: right;
+}
 
 .weather_detail {
   width: 60px;
@@ -96,14 +90,14 @@
 /* 내용 */
 .dairyContents {
   width: 100%;
-  height: 450px;
+  height: 500px;
   margin: 30px 0px;
-  padding-right: 12px;
+  padding: 5px 12px 5px 5px;
   text-align: justify;
   /* scroll */
   line-height: 35px;
   overflow-y: auto;
-  -webkit-line-clamp: 13;
+  -webkit-line-clamp: 14;
   /* 원하는 줄 수를 입력하세요 */
   background: none;
   font-family: 'KyoboHand';
@@ -115,9 +109,10 @@
 
 .dairyContents:focus {
   outline: none;
-  background-color: #c1dcfc;
+  background-color: #b4d4fc81;
 }
 
+/* 스크롤바css */
 .dairyContents::-webkit-scrollbar {
   width: 8px;
   height: 200px;
@@ -136,29 +131,31 @@
 /* 수정 삭제 버튼 */
 .bottom {
   position: absolute;
-  bottom: 0px;
-  right: 40px;
+  bottom: 10px;
+  right: 10px;
 }
 
 .modalCloseBtn {
-  width: 100px;
-  height: 55px;
-  line-height: 55px;
+  width: 80px;
+  height: 50px;
+  line-height: 45px;
   border-radius: 50px;
   transition: all .1s ease;
-  border: 3px solid#c1dcfc;
-  background-color: #a5c9fc;
-  font-family: 'LeferiPoint-SpecialA';
+  border: 3px solid #2179F9;
+  background-color: #B4D4FC;
+  font-family: 'OSeongandHanEum';
   font-size: 16px;
-  color: white;
+  font-weight: 600;
+  color: #2179F9;
   margin-left: 15px;
   padding: 0px;
 }
 
 .modalCloseBtn:hover {
-  background-color: #c1dcfc;
-  border: 3px solid #a5c9fc;
-  box-shadow: 0px 0px 8px #a5c9fc;
-  color: #68a7ff;
+  background-color: #2179F9;
+  border: 3px solid #B4D4FC;
+  box-shadow: 0px 0px 10px #2179F9;
+  color: #ffff;
   font-size: 18px;
+  font-weight: bold;
 }
