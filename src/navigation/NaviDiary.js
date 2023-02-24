@@ -13,11 +13,11 @@ const NaviDiary = (props) => {
         const token = sessionStorage.getItem('token');
 
         // if ( token != null ) {
-            const decode_token = jwt_decode(token)
-            setName(decode_token.name);
-            setMemberId(decode_token.sub)
+        const decode_token = jwt_decode(token)
+        setName(decode_token.name);
+        setMemberId(decode_token.sub)
 
-            let memberId = decode_token.sub;
+        let memberId = decode_token.sub;
         // }
     }, []);
 
@@ -45,7 +45,7 @@ const NaviDiary = (props) => {
                         src={home}
                         onClick={handlerClickHome}></input>
                     <div className='loginMessage'>
-                        <p className="name">{props.name}의 일기장 ◡̈⋆*</p>
+                        <p className="name">{name}의 일기장 ◡̈⋆*</p>
                         <button type="button"
                             className='myPage'
                             value="마이페이지"

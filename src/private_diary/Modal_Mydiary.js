@@ -10,6 +10,11 @@ const Modal_Mydiary = (props, { history }) => {
         top: -${window.scrollY}px;
         overflow-y: scroll;
         width: 100%;`;
+        
+        console.log(props.list);
+        setContents(props.list.diaryContent);
+        setMood(props.list.moodId);
+        setWeather(props.list.weatherId);
 
         return () => {
             const scrollY = document.body.style.top;
@@ -21,59 +26,106 @@ const Modal_Mydiary = (props, { history }) => {
     const modalClose = () => {
         props.closeModal();
         console.log(props.closeModal());
-    }
+    };
     //모달끝
 
     //일기 수정 확인 필요
-    const [contents, setContents] = useState('안녕 안녕 안녕 아니한 우리는 그들의 맺어, 피가 끓는다. 이상을 풀이 것은 몸이 동산에는 꽃이 있는가? 만천하의 뼈 얼음이 예가 끓는 능히 산야에 끓는 것이다. 들어 꽃이 튼튼하며, 구하기 있는 무한한 것이다. 그러므로 피에 사랑의 있는 이상, 끓는 위하여서. 되려니와, 힘차게 미묘한 보라. 천지는 힘차게 위하여 이상 가슴이 것이다. 얼마나 없는 청춘을 위하여, 것이다. 우리는 가슴에 불러 커다란 청춘에서만 황금시대의 가치를 것이다. 듣기만 되는 보이는 시들어 곳이 무엇을 교향악이다. 방황하였으며, 얼마나 천지는 천하를 있는가? 미묘한 없으면, 청춘에서만 온갖 인생을 군영과 꽃이 보라. 청춘은 놀이 인도하겠다는 갑 가는 것은 앞이 가는 황금시대다. 날카로우나 이것은 타오르고 .');
+    const [ diary, setDiary ] = useState({});
+    
+    const [ weather, setWeather ] = useState('');
+    const [ mood, setMood ] = useState('');
+    const [ contents, setContents ] = useState('');
+    const image = `http://localhost:8080/api/getImage/` + props.list.diaryImg;
 
-    const handlerChangeContents = e => setContents(e.target.value);
+    const diaryId = props.list.diaryId;
+    
+    const moodImg = (mood) => {
+        if (mood == 0) { return <img src={`/img/mood_1.png`} className="mood_detail" /> }
+        else if (mood == 1) { return <img src={`/img/mood_2.png`} className="mood_detail" /> }
+        else if (mood == 2) { return <img src={`/img/mood_3.png`} className="mood_detail" /> }
+        else if (mood == 3) { return <img src={`/img/mood_4.png`} className="mood_detail" /> }
+        else if (mood == 4) { return <img src={`/img/mood_5.png`} className="mood_detail" /> }
+    };
 
-    // 삭제 버튼 확인 필요
-    const handlerClickDelete = () => {
-        axios.delete(`http://localhost:8080/api//someus/private/{diaryId}`)
-            .then(response => {
-                console.log(response);
-                if (response.data === 1) {
-                    alert('정상적으로 삭제되었습니다.');
-                    history.push('/someus/private');				// 정상적으로 삭제되면 목록으로 이동
+    const weatherImg = (weather) => {
+        if (weather == 0) { return <img src={`/img/weather_1.png`} className="weather_detail" /> }
+        else if (weather == 1) { return <img src={`/img/weather_2.png`} className="weather_detail" /> }
+        else if (weather == 2) { return <img src={`/img/weather_3.png`} className="weather_detail" /> }
+        else if (weather == 3) { return <img src={`/img/weather_4.png`} className="weather_detail" /> }
+        else if (weather == 4) { return <img src={`/img/weather_5.png`} className="weather_detail" /> }
+    }
+    const hanlderChangeContents = (e) => {
+        setContents(e.target.value);
+        console.log(contents);
+    };
+
+    const handlerOnClickUpdate = () => {
+        axios.put(`http://localhost:8080/api/someus/private/${diaryId}`,
+                    { "diaryContent": contents },
+                    { headers: { 'Authorization' : `Bearer ${ sessionStorage.getItem('token') }`}})
+            .then((response) => {
+                if(response.data === 1) {
+                    alert(`정상적으로 수정되었습니다.`);
+                    props.closeModal();
                 } else {
-                    alert('삭제에 실패했습니다.');
+                    alert(`수정에 실패했습니다.`);
                     return;
                 }
             })
-            .catch(error => {
+            .catch((error) => {
+                console.log(contents);
                 console.log(error);
-                alert(`삭제에 실패했습니다. (${error.message})`);
-                return;
-            });
+                alert(`수정에 실패했습니다.`);
+                    return;
+            })
     };
 
-
-
+    const handlerOnClickDelete = () => {
+        axios.delete(`http://localhost:8080/api/someus/private/${diaryId}`,
+        { headers: { 'Authorization' : `Bearer ${ sessionStorage.getItem('token') }`}})
+            .then((response) => {
+                if(response.data === 1) {
+                    alert(`정상적으로 삭제되었습니다.`);
+                    //리스트 map다시 돌게 리프레쉬 추가 피룡!!!!
+                    // props.setList(prevState => {
+                    //     const updateArray = [...prevState];
+                    //     return updateArray;
+                    // });
+                    //------------------------------------------
+                    props.closeModal();
+                } else {
+                    alert(`삭제에 실패했습니다.`);
+                    return;
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+                alert(`삭제에 실패했습니다.`);
+                return;
+            })
+    };
 
     return (
         <>
-            <div className="modal" onClick={modalClose}>
-                <div className="modalBody_private" onClick={(e) => e.stopPropagation()}>
+            <div className="private_modal" onClick={props.closeModal}>
+                <div className="private_modalBody" onClick={(e) => e.stopPropagation()}>
                     <div className="modelLeft">
-                        <img className="modalImg" src={require("../img/writesample/write_5.PNG")} />
+                    <img className="modalImg" src={image} />
                     </div>
                     <div className="modalRight">
                         <div className="modalRightHeader">
-                            <span className="write_day">2023. 02. 17</span>
+                        <span className="write_day">{props.list.createdDt}</span>
                             <div className="modalRightHeaderRight">
-                                <div className="weather_detail"></div>
-                                <div className="mood_detail"></div>
+                            <span>{weatherImg(weather)}</span>
+                            <span>{moodImg(mood)}</span>
                             </div>
                         </div>
-                        {/* <div className='dairyContents'> */}
-                        <textarea className='dairyContents' value={contents} onChange={handlerChangeContents}></textarea>
-                        {/* </div> */}
-                        {/* <input className="dairyContents" type="text" value={dairyContents} onChange={handlerChangeContents} /> */}
+                        
+                        <textarea className='dairyContents' value={contents} onChange={hanlderChangeContents}></textarea>
+                        
                         <div className="bottom">
-                            <button className="modalCloseBtn" onChange={handlerChangeContents}>연필</button>
-                            <button className="modalCloseBtn" onClick={handlerClickDelete}>휴지통</button>
+                            <button className="modalCloseBtn" onClick={handlerOnClickUpdate}>연필</button>
+                            <button className="modalCloseBtn" onClick={handlerOnClickDelete}>휴지통</button>
                         </div>
                         {props.children}
                     </div>

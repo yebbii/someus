@@ -43,6 +43,7 @@
 }
 
 .modelLeft .modalImg {
+  min-width: 100%;
   height: 100%;
   position: absolute;
   top: 50%;
@@ -76,26 +77,18 @@
   font-size: 30px;
 }
 
-.modalRightHeaderRight {
-  float: right;
-}
+/* 날씨 기분 */
+.modalRightHeaderRight { float: right; }
 
 .weather_detail {
   width: 60px;
   height: 60px;
-  background-image: url('../img/weather_2.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 55px;
   float: left;
 }
 
 .mood_detail {
   width: 60px;
   height: 60px;
-  background-image: url('../img/mood_1.png');
-  background-size: contain;
-  background-repeat: no-repeat;
   margin-left: 12px;
   float: left;
 }
