@@ -1,3 +1,18 @@
+@font-face {
+    font-family: 'Tenada';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 투두 */
+@font-face {
+    font-family: 'insungitCutelivelyjisu';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/insungitCutelivelyjisu.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .todo_box {
     background-color: rgba(255, 213, 213, 0.5);
     padding: 15px;
@@ -7,8 +22,8 @@
 
 /* 투두 헤더 */
 .Todo {
-    font-weight: bold;
-    font-size: 20px;
+    font-family: 'Tenada';
+    font-size: 24px;
     width: 100%;
     margin: auto;
     padding: 15px 10px;
@@ -50,7 +65,8 @@
     outline: none;
     margin-left: 10px;
     padding: 5px;
-    font-size: 16px;
+    font-family: 'insungitCutelivelyjisu';
+    font-size: 18px;
 }
 
 @media (max-width: 1920px) {

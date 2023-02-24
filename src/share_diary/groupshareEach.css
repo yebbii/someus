@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'BMDOHYEON';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+  font-family: 'Tenada';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
@@ -12,14 +12,14 @@
   margin-right: 30px;
   margin-bottom: 20px;
   text-align: center;
-  /* border: 3px solid purple; */
 }
+
 .groupEachdiary img {
   width: 100%;
 }
 
 .groupEachdiary .share_title {
-  font-family: 'BMDOHYEON';
-  font-size: 18px;
+  font-family: 'Tenada';
+  font-size: 24px;
   margin: 0px;
 }

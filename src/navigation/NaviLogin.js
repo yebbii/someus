@@ -4,45 +4,37 @@ import mypage from 'C:/javascript/someus-app/src/img/navicon_my.png'
 import howTo from 'C:/javascript/someus-app/src/img/navicon_howTo.png'
 import logout from 'C:/javascript/someus-app/src/img/navicon_logout.png'
 
-const NaviLogin = (props) => {
+const NaviLogin = ({ name,
+    handlerClickHome,
+    handlerClickHowTo,
+    handlerClickLogout,
+    handlerClickMyPage }) => {
 
-    const handlerClickHome = () => {
-        props.history.push('/someus');
-    };
-
-    const handlerClickMyPage = () => {
-        props.history.push('/someus/private/~~');
-    };
-
-    const handlerClickGuide = () => {
-        props.history.push('someus/guide');
-    };
-
-    return(
+    return (
         <>
-        <div id='header'>
-            <div className="menu">
-                <input type="image" 
-                        className= 'navi_icon'
+            <div id='header'>
+                <div className="menu">
+                    <input type="image"
+                        className='navi_icon'
                         src={logo}
                         alt="SOMEUS"
-                        onClick={ handlerClickHome }></input>
-                <button type="button"
-                        className= 'howTo' 
-                        onClick={ handlerClickGuide }><img src={howTo}/></button>
-                <div className="loginMessage">
-                    <p className="name">{ props.name }의 일기장 ◡̈⋆*</p>
+                        onClick={handlerClickHome}></input>
                     <button type="button"
-                            className= 'myPage' 
+                        className='howTo'
+                        onClick={handlerClickHowTo}><img src={howTo} /></button>
+                    <div className="loginMessage">
+                        <p className="name">{name}의 일기장 ◡̈⋆*</p>
+                        <button type="button"
+                            className='myPage'
                             value="마이페이지"
-                            onClick={ handlerClickMyPage}><img src={mypage}/></button>
-                    <button type="button"
-                            className= 'logout' 
+                            onClick={handlerClickMyPage}><img src={mypage} /></button>
+                        <button type="button"
+                            className='logout'
                             value="로그아웃"
-                            onClick={ handlerClickMyPage }><img src={logout} /></button>
+                            onClick={handlerClickLogout}><img src={logout} /></button>
+                    </div>
                 </div>
             </div>
-        </div>    
         </>
     );
 }

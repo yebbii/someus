@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+.mypageBackground {
+  width: 1920px;
+  background-image: url('../img/bgB_mypage.png');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  display: block;
+  height: 100vh;
+  /* padding: 200px 100px; */
+}
+
+.mypageBackground::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+/* 이 부분만 수정 */
+.myD img,
+.groupD img {
+  width: 300px;
+  height: 500px;
+}
+
+@media (max-width: 1920px) {
+  .loginPage {
+    width: 1920px;
+  }
+}

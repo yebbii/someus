@@ -1,5 +1,26 @@
+/* 타이틀 */
+@font-face {
+    font-family: 'Tenada';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+/* 버튼 */
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/*  */
+@font-face {
+    font-family: 'YUniverse-B';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_yuniverse@1.0/YUniverse-B.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
 
-.addgroup_box{
+.addgroup_box {
     background-color: #FFFDE7;
     width: 800px;
     height: 500px;
@@ -9,6 +30,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 .addgroup_con {
     /* background-color: aqua; */
     margin: auto;
@@ -19,7 +41,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.groupdiary{
+
+.groupdiary {
     background-image: url('../img/groupD_3.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -30,7 +53,12 @@
     padding-right: 20px;
     clear: both;
 }
-.groupdiary::after { display: block; content: ""; clear: both;}
+
+.groupdiary::after {
+    display: block;
+    content: "";
+    clear: both;
+}
 
 .addgroup_box form {
     /* background-color: pink; */
@@ -49,29 +77,35 @@
     height: 50px;
     border-radius: 10px;
     padding-left: 43px;
-    margin-bottom: 20px;  
+    margin-bottom: 20px;
     border: 3px solid #a5f2ad;
+    font-family: 'YUniverse-B';
     font-size: 16px;
 }
+
 .addgroup_box input:focus {
     outline: 3px solid #14B21F;
+    border: 3px solid rgba(255, 255, 255, 0);
 }
+
 .addgroup_box input::placeholder {
+    font-family: 'YUniverse-B';
     font-size: 14px;
 }
 
 /* 하트로고 */
 .grouptitleimg {
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
     display: inline-block;
     position: absolute;
-    top: 90px;
-    left: 310px;
+    top: 91px;
+    left: 313px;
     background-image: url('../img/login_icon.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
+
 .groupMemberidimg {
     width: 30px;
     height: 30px;
@@ -83,8 +117,14 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
-/* 하트로고 끝 */
 
+/* 하트로고 끝 */
+@font-face {
+    font-family: 'OSeongandHanEum';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OSeongandHanEum.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 /* 등록버튼 */
 .addgroup_box button {
     width: 150px;
@@ -93,11 +133,14 @@
     margin-top: 20px;
     border-radius: 50px;
     border: 3px solid#a5f2ad;
-    transition:all .5s ease;
+    transition: all .5s ease;
     background-color: #14B21F;
     color: white;
-    font-size: 14px;
+    font-family: 'OSeongandHanEum';
+    font-size: 16px;
+    font-weight: bold;
 }
+
 .addgroup_box button:hover {
     background-color: #d9ffdd;
     border: 3px solid #14B21F;
@@ -118,25 +161,25 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .modalBody {
+}
+
+.modalBody {
     position: flex;
     width: 850px;
     height: 500px;
-    padding:40px;
+    padding: 40px;
     text-align: center;
     background-color: #FFFDE7;
     border-radius: 10px;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
-  }
-  
-  .modalClose {
+}
+
+.modalClose {
     position: absolute;
     right: 10px;
     left: 10px;
-  }
+}
