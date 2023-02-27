@@ -141,7 +141,8 @@
   padding: 50px 50px;
 }
 
-.ht-intro_contents, .ht-choice_contents, .ht-weather_contents {
+.ht-intro_contents, .ht-private_contents, .ht-group_contents,
+.ht-choice_contents, .ht-weather_contents {
   text-align: center;
   font-size: 25px;
   font-family: 'PyeongChangPeace';
@@ -245,8 +246,118 @@
   display: block;
   opacity: 1; 
 } 
-/*  */
-/*  */
+
+/* private, group 공통 */
+.ht-private_title, .ht-group_title {
+  text-align: center;
+  font-family: 'HS-Regular';
+  font-size: 70px;
+  font-weight: 500; 
+  margin: 10px auto;
+}
+.ht-private_contents, .ht-group_contents {
+  margin: 20px 0px;
+}
+/* private */
+.ht-private {
+  background-color: rgb(135, 206, 235, 0.3);
+  padding-right: 0px;
+}
+.ht-private_use {
+  width: 1400px;
+  height: 600px;
+  float: right;
+  background-image: url('../img/howto_my1.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+}
+.ht-private_newcontents {
+  font-family: 'YUniverse-B';
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  top: 14%;
+  left: 42%;
+}
+.ht-private_editcontents {
+  font-family: 'YUniverse-B';
+  font-size: 20px;
+  position: absolute;
+  top: 14%;
+  left: 74%;
+}
+.ht-private_todo {
+  width: 902px;
+  float: right;
+  position: absolute;
+  top: 75%;
+  right: 0%;
+}
+.ht-private_todotitle {
+  font-family: 'PyeongChangPeace';
+  font-size: 22px;
+  font-weight: 700;
+  padding: 5px ;
+  text-align: left;
+  margin: 0px;
+  position: absolute;
+  top: 25%;
+  right: 34%;
+}
+.ht-private_todocontents {
+  font-family: 'YUniverse-B';
+  font-size: 18px;
+  float:left;
+  text-align: center;
+  width: 300px;
+  padding: 10px 30px;
+}
+
+/* group */
+.ht-group {
+  background-color: rgba(182, 236, 160, 0.3);
+}
+.ht-group_add {
+  width: 100%;
+  height: 250px;
+  margin: 0px 0px;
+  border-radius: 30px;
+  background-color: rgb(255, 255, 255, 0.8);
+  background-image: url('../img/howto_group1.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1350px;
+  position: relative;
+  transition: all .3s ease;
+}
+.ht-group_add:hover {
+  background-image: url('../img/howto_group2.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1350px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.ht-group_addme {
+  position: absolute;
+  bottom: 13%;
+  left: 10.2%;
+  font-family: 'YUniverse-B';
+  font-size: 16px;
+}
+.ht-group_use {
+  width: 100%;
+  height: 250px;
+  margin: 30px 0px;
+  background-image: url('../img/howto_group3.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1350px;
+  
+}
+
+
 /* mood weather 공통*/
 .ht-mood_1, .ht-mood_2, .ht-mood_3, .ht-mood_4, .ht-mood_5,
 .ht-weather_1, .ht-weather_2, .ht-weather_3, .ht-weather_4, .ht-weather_5 
@@ -292,11 +403,11 @@
 
 
 
-.ht-mood_1 {  background-image: url('../img/mood_1.png'); }
-.ht-mood_2 { background-image: url('../img/mood_2.png'); }
-.ht-mood_3 { background-image: url('../img/mood_3.png'); }
-.ht-mood_4 { background-image: url('../img/mood_4.png'); }
-.ht-mood_5 { background-image: url('../img/mood_5.png'); }
+.ht-mood_1 {  background-image: url('../img/moodC_1.png'); }
+.ht-mood_2 { background-image: url('../img/moodC_2.png'); }
+.ht-mood_3 { background-image: url('../img/moodC_3.png'); }
+.ht-mood_4 { background-image: url('../img/moodC_4.png'); }
+.ht-mood_5 { background-image: url('../img/moodC_5.png'); }
 
 .ht-mood_text {
   float: left;
