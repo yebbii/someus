@@ -1,12 +1,13 @@
 import { useState } from "react";
 import GroupShareDetailEach from "./GroupShareDetailEach";
 
-const GroupShareDetail = () => {
+const GroupShareDetail = ({ name, match }) => {
 
+    const { shareroomId, createdDt } = match.params;
     return (
         <>
-            <GroupShareDetailEach />
-            <GroupShareDetailEach />
+            <GroupShareDetailEach shareroomId={ shareroomId } createdDt={ createdDt }/>
+            <GroupShareDetailEach shareroomId={ shareroomId } createdDt={ createdDt }/>
         </>
     );
 }

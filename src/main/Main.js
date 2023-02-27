@@ -21,6 +21,7 @@ const Main = ({history}) => {
         <>
         <Navigation history={history}/>
         <div className="main_background">
+            <div className='mainlogo_img'></div>
             <h1 className='text'>{message}</h1>
         </div>
         <div className="footer">

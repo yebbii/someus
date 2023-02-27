@@ -11,6 +11,7 @@
   position: relative;
   height: 810px;
   overflow: hidden;
+  position: relative;
 }
 
 .mypageBackground::after {
@@ -26,6 +27,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1;
 }
 /* 다이어리 선택 */
 .myD {
@@ -64,6 +66,50 @@
   background-color: rgba(0, 0, 0, 0.2);
   box-shadow: 0px 0px 20px #14B21F;
   border-radius: 20px;
+}
+
+/* lotation logo */
+.bg-logo_lotation {
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  top:50%;
+  left: 3%;
+}
+.bg-logoimg {
+  width: 200px;
+  height: 200px;
+  background-image: url('../img/bgB_mypage1.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 200px;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.bg-lotationimg {
+  width: 600px;
+  height: 600px;
+  background-image: url('../img/bgB_mypage2.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 600px;
+  animation: rotate 8s ease infinite;
+}
+@keyframes rotate {
+  from { 
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+   }
+  to {
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 1920px) {

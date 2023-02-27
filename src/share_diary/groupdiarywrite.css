@@ -5,6 +5,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 /* 버튼서체 */
 @font-face {
     font-family: 'LeferiPoint-SpecialA';
@@ -12,6 +13,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 /* 내용 서체 */
 @font-face {
     font-family: 'KyoboHand';
@@ -32,7 +34,7 @@
     background-position: center;
     background-size: cover;
     display: block;
-    padding: 80px 100px;
+    padding: 80px 300px;
 }
 
 .groupWrite_background::after {
@@ -47,7 +49,6 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 50px;
 }
 
 .groupWrite_container h1 {
@@ -75,10 +76,13 @@
     float: right;
 }
 
-.writeheader0 .weather-container0 button,
-.writeheader0 .mood-container0 button {
-    display: inline-block;
-    margin-left: 10px;
+.writeheader0 .weather-container0 .groupweather_img,
+.writeheader0 .mood-container0 .groupmood_img {
+    margin-left: 30px;
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    cursor: pointer;
 }
 
 .writeheader0 .weather-container0 p,
@@ -95,14 +99,14 @@
 /* 일기 본문 */
 .writebody_box {
     width: 100%;
-    background-color: #cccccc;
     height: 400px;
+    background-color: #cccccc;
     font-family: 'KyoboHand';
     font-size: 22px;
     color: black;
     margin-top: 30px;
     padding: 20px 30px;
-    border: none;
+    border: 6px dotted rgb(180, 212, 252, 0);
     resize: none;
 }
 
@@ -134,18 +138,17 @@
 }
 
 .fileBox0 {
-    font-family: 'LeferiPoint-SpecialA';
+    font-family: 'OSeongandHanEum';
     font-size: 16px;
     font-weight: bold;
     color: #666666;
 }
 
 .writefooter0 .fileBox0::-webkit-file-upload-button {
-    font-family: 'LeferiPoint-SpecialA';
+    font-family: 'OSeongandHanEum';
     font-size: 16px;
     font-weight: bold;
     height: 45px;
-    line-height: 45px;
     padding: 0px 10px;
     margin-right: 20px;
     border-radius: 10px;
@@ -160,21 +163,29 @@
     float: right;
     width: 100px;
     height: 55px;
-    line-height: 55px;
     border-radius: 50px;
     transition: all .1s ease;
     border: 3px solid #14B21F;
     background-color: #A5F2AD;
-    font-family: 'LeferiPoint-SpecialA';
+    font-family: 'OSeongandHanEum';
     font-size: 16px;
-    color: white;
+    font-weight: bold;
+    color: #018a0a;
     margin-top: 40px;
     padding: 0px;
     cursor: pointer;
 }
+
 .submit0:hover {
     background-color: #14B21F;
     border: 3px solid #A5F2AD;
     box-shadow: 0px 0px 8px #14B21F;
     font-size: 18px;
-  }
+    color: white;
+}
+
+@media (max-width: 1920px) {
+    .groupWrite_background {
+        width: 1920px;
+    }
+}

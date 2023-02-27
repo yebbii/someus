@@ -1,19 +1,21 @@
 import groupdiaryimg from 'C:/javascript/someus-app/src/img/groupD_1.png';
 import './groupshareEach.css';
 
-const GroupShareEach = ({ list }) => {
+const GroupShareEach = ({ list, history }) => {
+
+   
+
+    const handlerClick = () => {
+        console.log(list.shareRoomId);
+        history.push(`/someus/share/groupsharelist/${list.shareRoomId}`);
+    }
     return (
         <>
-        {/* <div style={ {float: 'left', width: "calc('300px' / 4)", padding: 5} }>
-            <img src="" />
-            <p>{ list.date }</p>
-        </div> */}
-
-    <div className='groupEachdiary'>
+        <div className='groupEachdiary' onClick={handlerClick}>
             <div className='groupdiaryimg'>
                 <img src={groupdiaryimg} />
             </div>
-            <div className='share_title'>우리들의 일기</div>
+            <div className='share_title'>{ list.shareRoomName }</div>
         </ div>
         </>
     );

@@ -1,34 +1,87 @@
 import axios from "axios";
-import { useState, useRef } from "react";
-import NavigationDiary from "../navigation/NaviDiary";
+import jwt_decode from "jwt-decode";
+import { useState, useRef, useEffect } from "react";
+import NaviDiary from "../navigation/NaviDiary";
 import './groupdiarywrite.css';
 
-const GroupDiaryWrite = ({ history }) => {
+const GroupDiaryWrite = ({ history, match }) => {
 
-    let weather = ['맑음', '비', '눈', '흐림', '구름 많음'];
-    let mood = [1, 2, 3, 4, 5];
-
-    const [weatherActive, setWeatherActive] = useState('');
-    const [moodActive, setMoodActive] = useState('');
+    const [weather, setWeather] = useState([]);
+    const [mood, setMood] = useState([]);
+    const [weatherActive, setWeatherActive] = useState(1);
+    const [moodActive, setMoodActive] = useState(1);
     const [imgBase64, setImgBase64] = useState([]);
     const [imgBase, setImgBase] = useState([1]);
     const [imgFile, setImgFile] = useState([]);
     const [contents, setContents] = useState('');
+    const [username, setUsername] = useState('');
+    const [userId, setUserId] = useState('');
 
+    const { shareroomid } = match.params;
+
+    useEffect(() => {
+        const token = sessionStorage.getItem('token');
+        const decode_token = jwt_decode(token);
+
+        axios.get(`http://localhost:8080/api/someus/share/${shareroomid}/write`,
+            { headers: { 'Authorization': `Bearer ${sessionStorage.getItem('token')}` } })
+            .then((response) => {
+                setWeather(response.data.weatherList);
+                setMood(response.data.moodList);
+                setUsername(decode_token.name);
+                setUserId(decode_token.sub);
+                console.log(shareroomid);
+            })
+            .catch((error) => {
+                console.log(error);
+                return;
+            })
+    }, [])
+
+    // 날씨 버튼 출력
+    const weatherList = () => {
+        const result = [];
+        for (let i = 0; i < weather.length; i++) {
+            result.push(
+                <>
+                    <img className="groupweather_img" 
+                        src={weather[i].weatherId == weatherActive
+                        ? `/img/weatherC_${weather[i].weatherId}.png`
+                        : `/img/weather_${weather[i].weatherId}.png`}
+                        onClick={toggleWeatherActive}
+                        alt={weather[i].weatherId} />
+                </>
+            );
+        } return result;
+    };
+
+    // 기분 버튼 출력
+    const moodList = () => {
+        const result = [];
+        for (let i = 0; i < mood.length; i++) {
+            result.push(
+                <>
+                    <img className="groupmood_img"
+                        src={mood[i].moodId == moodActive
+                            ? `/img/moodC_${mood[i].moodId}.png`
+                            : `/img/mood_${mood[i].moodId}.png`}
+                        onClick={toggleMoodActive}
+                        alt={mood[i].moodId} />
+                </>
+            );
+        } return result;
+    };
 
     const toggleWeatherActive = (e) => {
         e.preventDefault();
-        setWeatherActive(() => {
-            console.log(e.target.value);
-            return e.target.value;
-        });
+        setWeatherActive(e.target.alt);
+        console.log(weatherActive);
     };
 
     const toggleMoodActive = (e) => {
         e.preventDefault();
-        setMoodActive(() => {
-            return e.target.value;
-        });
+        setMoodActive(e.target.alt);
+        console.log(weatherActive);
     };
 
     const handlerOnChangeContents = (e) => {
@@ -79,17 +132,19 @@ const GroupDiaryWrite = ({ history }) => {
         };
     };
 
-    const diarySet = {
-        weather_id: 'weatherActive',
-        mood_id: 'moodActive',
-        diary_content: 'contents'
+    const diaryDto = {
+        weatherId: weatherActive,
+        moodId: moodActive,
+        diaryContent: contents,
+        memberId: userId,
+        shareRoomId: shareroomid
     };
 
     formData.append(
         "data",
-        new Blob([JSON.stringify(diarySet)], { type: "application/json" })
+        new Blob([JSON.stringify(diaryDto)], { type: "application/json" })
     );
-    Object.values(imgFile).forEach((file) => formData.append("diary_img", file));
+    Object.values(imgFile).forEach((file) => formData.append("files", file));
 
 
     const onSubmit = (e) => {
@@ -97,7 +152,7 @@ const GroupDiaryWrite = ({ history }) => {
 
         axios({
             method: 'post',
-            url: `http://localhost:8080/api/someus/share/write`,
+            url: `http://localhost:8080/api/someus/share/${shareroomid}/write`,
             data: formData,
             headers: {
                 "Content-Type": `multipart/form-data; `,
@@ -108,69 +163,41 @@ const GroupDiaryWrite = ({ history }) => {
                 console.log(response);
                 if (response.data.count === 1) {
                     alert(`정상적으로 등록되었습니다.`);
-                    history.push('/someus/sharelist');
+                    history.push(`/someus/share/groupsharelist/${shareroomid}`);
                 };
             })
             .catch(error => {
                 console.log(error);
             })
-    }
+    };
 
     return (
         <>
-            <NavigationDiary />
+            <NaviDiary history={history} />
             <div className='groupWrite_background'>
                 <div className='groupWrite_container'>
                     <h1>오늘의 일기</h1>
-                    <form >
+                    <form onSubmit={onSubmit}>
                         <div>
                             <div className='writeheader0'>
                                 <div className='weather-container0'>
                                     <p>오늘의 날씨</p>
-                                    {weather.map((item, idx) => {
-                                        return (
-                                            <>
-                                                <button
-                                                    key={idx}
-                                                    value={idx}
-                                                    className={"btn" + (idx == weatherActive ? " active" : "")}
-                                                    onClick={toggleWeatherActive}
-                                                >
-                                                    {item}
-                                                </button>
-                                            </>
-                                        );
-                                    })}
+                                    {weatherList()}
                                 </div>
                                 <div className='mood-container0'>
                                     <p>오늘의 기분은?</p>
-                                    {mood.map((item, idx) => {
-                                        return (
-                                            <>
-                                                <button
-                                                    key={idx}
-                                                    value={idx}
-                                                    className={"btn" + (idx == moodActive ? " active" : "")}
-                                                    onClick={toggleMoodActive}
-                                                >
-                                                    {item}
-                                                </button>
-                                            </>
-                                        );
-                                    })}
+                                    {moodList()}
                                 </div>
                             </div>
 
-                            
                             <textarea className='writebody_box'
                                 placeholder="오늘의 하루를 입력해 주세요."
                                 value={contents}
                                 onChange={handlerOnChangeContents}></textarea>
-                            
 
                             <div className='writefooter0'>
                                 {/* <div className='fileBox0'> */}
-                                    <input className='fileBox0' type='file' id='file' onChange={handleChangeFile} />
+                                <input className='fileBox0' type='file' id='file' onChange={handleChangeFile} />
                                 {/* </div> */}
                             </div>
                             <input className='submit0' type='submit' value='제출' />

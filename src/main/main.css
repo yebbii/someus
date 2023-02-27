@@ -1,10 +1,45 @@
+/* main */
 @font-face {
-    font-family: 'Yeongdo-Rg';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/Yeongdo-Rg.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
+  font-family: 'Yeongdo-Rg';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/Yeongdo-Rg.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+/* TITLE */
+@font-face {
+  font-family: 'HS-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/HS-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+/* contens */
+@font-face {
+  font-family: 'PyeongChangPeace';
+  font-weight: 300;
+  font-style: normal;
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Light.eot');
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Light.eot?#iefix') format('embedded-opentype'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Light.woff2') format('woff2'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Light.woff') format('woff'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/PyeongChang/PyeongChangPeace-Light.ttf') format("truetype");
+  font-display: swap;
+} 
+/* 초이스 */
+@font-face {
+  font-family: 'YUniverse-B';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_yuniverse@1.0/YUniverse-B.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+/* 하트설명 */
+@font-face {
+  font-family: 'Dovemayo_wild';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/Dovemayo_wild.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
+* { box-sizing: border-box; }
 /* ----------- main ---------- */
 .main_background {
   background-image: url('../img/bgB_main.png');
@@ -13,14 +48,31 @@
   display: block;
   height: 850px;
   box-sizing: border-box;
-  padding-top: 700px; 
+  padding-top: 55px; 
   overflow: hidden;
+  position: relative;
 }
 .main_background::after {
   display: block;
   content: "";
   clear: both;
 }
+.mainlogo_img {
+  width: 630px;
+  height: 630px;
+  margin: auto;
+  background-image: url('../img/bgB_main1.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: logo 2s ease-in-out infinite;
+}
+@keyframes logo {
+  0% { transform: scale(1); }
+  50% {  transform: scale(0.9);  }
+  100% { transform: scale(1); }
+}
+
 
 /* main text */
 .main_background h1 {
@@ -30,6 +82,10 @@
   line-height: 50px;
   font-size: 32px;
   text-align: center;
+  position: absolute;
+  top: 68%;
+  left: 50%;
+  transform: translate( -50%, 0%);
 }
 
 .main_background h1::after {
@@ -61,28 +117,211 @@
   background-position: center;
   background-size: cover;
   display: block;
-  
+  padding: 0px 200px;
+  overflow-y: hidden;  
 }
-
-
-
 .howto_background::after {
   display: block;
   content: "";
   clear: both;
 }
 
-.howto_background img {
+/* howto */
+.howto_container {
+  height: 100vh;
+  overflow-y: auto;
+}
+.howto_container::-webkit-scrollbar {
+  display: none;
+}
+
+.ht-intro, .ht-choice, .ht-private, .ht-group, .ht-mood, .ht-weather {
   width: 100%;
+  height: 100vh;
+  padding: 50px 50px;
+}
+
+.ht-intro_contents, .ht-choice_contents, .ht-weather_contents {
+  text-align: center;
+  font-size: 25px;
+  font-family: 'PyeongChangPeace';
+  font-weight: 700;
+}
+
+/* intro */
+.ht-intro {
+  padding: 70px 50px !important;
+  background-color: rgba(0, 0, 0, 0.4);
+  animation: fadein 3s;
   position: relative;
 }
-
-.howto_container {
-  background-color: pink;
-  margin: 0 100px;
+@keyframes fadein {
+  from {
+      opacity:0.1;
+  }
+  to {
+      opacity:1;
+  }
+}
+.ht-intro_logo {
+  width: 700px;
+  height: 650px;
+  background-image: url('../img/logo_black.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 700px;
+  margin: 10px auto;
+  animation: ht-intro_logo 2s ease-in-out infinite;
+}
+@keyframes ht-intro_logo {
+  0% { transform: scale(1); }
+  50% {  transform: scale(0.9);  }
+  100% { transform: scale(1); }
+}
+.ht-intro_title {
+  position: absolute;
+  top: 54%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  font-family: 'YUniverse-B';
+  font-size: 100px;
+  color: white;
+}
+.ht-intro_contents { 
+  color: white; 
+  position: absolute;
+  top: 72%;
+  left: 50%;
+  transform: translate(-50%, 0%);
 }
 
-.howto_container input {
-  width: 400px;
+/* choice */
+.ht-choice {background-color: rgba(255, 255, 255, 0.2);}
+.ht-choice_contents {
   text-align: center;
+  width: 600px;
+  padding: 100px 0px 40px 0px;
+  margin: auto;
+  line-height: 38px;
+}
+
+.ht-choice_box { width: 1050px; height: 600px; margin: auto;}
+.ht-choice_privateD, .ht-choice_groupD {
+  width: 500px; height: 500px;  float: left; }
+
+.ht-choice_privateD {
+  background-image: url('../img/D_blue.png');
+  background-position: center;
+  background-size: 450px;
+  background-repeat: no-repeat;
+  margin-right: 50px;
+  clear: both;
+}
+.ht-choice_groupD {
+  background-image: url('../img/D_green.png');
+  background-position: center;
+  background-size: 450px;
+  background-repeat: no-repeat;
+}
+.ht-choice_privateD:hover, .ht-choice_groupD:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+.ht-choice_privateD_ex {
+  width: 500px;
+  padding: 50px 10px;
+  margin: 150px auto;
+  color: white;
+  font-family: 'YUniverse-B';
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 1;
+  display:none;
+}
+.ht-choice_privateD:hover .ht-choice_privateD_ex,
+.ht-choice_groupD:hover .ht-choice_privateD_ex {
+  display: block;
+  opacity: 1; 
+} 
+/*  */
+/*  */
+/* mood weather 공통*/
+.ht-mood_1, .ht-mood_2, .ht-mood_3, .ht-mood_4, .ht-mood_5,
+.ht-weather_1, .ht-weather_2, .ht-weather_3, .ht-weather_4, .ht-weather_5 
+{ width: 260px;
+  height: 260px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 230px;
+  float: left;
+}
+
+.ht-mood{
+  padding: 160PX 0PX;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.ht-weather {
+  padding: 160PX 0PX;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.ht-mood_title, .ht-weather_title {
+  text-align: center;
+  font-family: 'HS-Regular';
+  font-size: 70px;
+  font-weight: 500; 
+  margin: 30px auto;
+}
+.ht-mood_box, .ht-weather_box {
+  width: 1300px;
+  margin: auto;
+}
+.ht-mood_box::after, .ht-weather_box::after { display: block; content: ""; clear: both;}
+
+/* mood */
+.ht-mood_1, .ht-mood_2, .ht-mood_3, .ht-mood_4, .ht-mood_5 {
+  transform: translateY(0px);
+}
+/* @keyframes mood {
+  0% { transform: scale(1); }
+  50% {  transform: scale(0.9);  }
+  100% { transform: scale(1); }
+} */
+
+
+
+.ht-mood_1 {  background-image: url('../img/mood_1.png'); }
+.ht-mood_2 { background-image: url('../img/mood_2.png'); }
+.ht-mood_3 { background-image: url('../img/mood_3.png'); }
+.ht-mood_4 { background-image: url('../img/mood_4.png'); }
+.ht-mood_5 { background-image: url('../img/mood_5.png'); }
+
+.ht-mood_text {
+  float: left;
+  width: 260px;
+  padding: 0px 20px;
+  text-align: justify;
+  font-family: 'Dovemayo_wild';
+  font-size: 22px;
+}
+
+/* weather */
+.ht-weather_contents {
+  margin: 50px 0px;
+  font-size: 25px;
+  font-family: 'PyeongChangPeace';
+  font-weight: 700;
+}
+.ht-weather_1 { background-image: url('../img/weather_1.png'); }
+.ht-weather_2 { background-image: url('../img/weather_2.png'); }
+.ht-weather_3 { background-image: url('../img/weather_3.png'); }
+.ht-weather_4 { background-image: url('../img/weather_4.png'); }
+.ht-weather_5 { background-image: url('../img/weather_5.png'); }
+
+@media (max-width: 1920px) {
+  .howto_background {
+      width: 1920px;
+  }
 }

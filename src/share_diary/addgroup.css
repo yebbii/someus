@@ -12,7 +12,7 @@
     font-weight: normal;
     font-style: normal;
 }
-/*  */
+/* placeholder */
 @font-face {
     font-family: 'YUniverse-B';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_yuniverse@1.0/YUniverse-B.woff2') format('woff2');
@@ -21,57 +21,36 @@
 }
 
 .addgroup_box {
-    background-color: #FFFDE7;
-    width: 800px;
-    height: 500px;
     margin: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.addgroup_con {
-    /* background-color: aqua; */
-    margin: auto;
-    width: 700px;
+    width: 650px;
     height: 300px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
+/* 그룹다이어리 이미지 */
 .groupdiary {
     background-image: url('../img/groupD_3.png');
     background-size: cover;
     background-repeat: no-repeat;
-    /* border: 3px solid green; */
-    float: left;
     height: 300px;
     width: 300px;
-    padding-right: 20px;
-    clear: both;
+    float: left;
 }
 
-.groupdiary::after {
-    display: block;
-    content: "";
-    clear: both;
-}
-
-.addgroup_box form {
-    /* background-color: pink; */
-    width: 400px;
-    height: 100%;
-    clear: both;
+/* 그룹 추가 */
+.addgroup_box .add-form {
+    width: 350px;
+    height: 300px;
     text-align: center;
-    padding: 80px 40px 0px 0px;
+    padding: 80px 20px 80px 30px;
+    float: left;
     vertical-align: middle;
 }
 
 /* 등록하는 부분 */
-.addgroup_box input {
+.addgroup_box .add-input {
     display: inline-block;
     width: 100%;
     height: 50px;
@@ -80,17 +59,16 @@
     margin-bottom: 20px;
     border: 3px solid #a5f2ad;
     font-family: 'YUniverse-B';
-    font-size: 16px;
+    font-size: 22px;
 }
-
-.addgroup_box input:focus {
+.addgroup_box .add-input:focus {
     outline: 3px solid #14B21F;
     border: 3px solid rgba(255, 255, 255, 0);
 }
 
-.addgroup_box input::placeholder {
+.addgroup_box .add-input::placeholder {
     font-family: 'YUniverse-B';
-    font-size: 14px;
+    font-size: 16px;
 }
 
 /* 하트로고 */
@@ -100,26 +78,26 @@
     display: inline-block;
     position: absolute;
     top: 91px;
-    left: 313px;
+    left: 340px;
     background-image: url('../img/login_icon.png');
-    background-size: contain;
+    background-size: 27px;
     background-repeat: no-repeat;
 }
 
-.groupMemberidimg {
+/* .groupMemberidimg {
     width: 30px;
     height: 30px;
     display: inline-block;
     position: absolute;
-    top: 90px;
-    left: 310px;
+    top: 91px;
+    left: 340px;
     background-image: url('../img/login_icon.png');
     background-size: contain;
     background-repeat: no-repeat;
-}
+} */
 
 /* 등록버튼 */
-.addgroup_box button {
+.addgroup_box .add-button {
     width: 150px;
     height: 50px;
     float: right;
@@ -134,7 +112,7 @@
     font-weight: 600;
 }
 
-.addgroup_box button:hover {
+.addgroup_box .add-button:hover {
     background-color: #d9ffdd;
     border: 3px solid #14B21F;
     box-shadow: 0px 0px 8px #14B21F;
@@ -145,7 +123,7 @@
 
 /* 모달 */
 
-.modal {
+.add-modal {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -160,7 +138,7 @@
     align-items: center;
 }
 
-.modalBody {
+.add-modalBody {
     position: flex;
     width: 850px;
     height: 500px;

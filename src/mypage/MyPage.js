@@ -27,6 +27,10 @@ const MyPage = ({ history }) => {
                         onClick={handlerShare}>
                     </button>
                 </div>
+                <div className="bg-logo_lotation">
+                    <div className="bg-logoimg" />
+                    <div className="bg-lotationimg" />
+                </div>
             </div>
         </>
     );
