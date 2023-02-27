@@ -135,12 +135,12 @@ const MainHowTo = ({ history }) => {
                         <div className='ht-private_title'>나의 일기에는</div>
                         <div className='ht-private_contents'> 월별 목표를 추가하고 관리 할 수 있습니다 </div>
                         <div className='ht-private_use'>
-                            <div className='ht-private_newcontents'>버튼을 눌러 새로운 목표을 추가하세요</div>
-                            <div className='ht-private_editcontents'>지우개를 눌러 목표를 수정할 수 있습니다</div>
+                            <div className='ht-private_newcontents'>버튼을 눌러 새로운 목표를 추가하세요</div>
+                            <div className='ht-private_editcontents'>지우개를 눌러 목표를 삭제 할 수 있습니다</div>
                             <div className='ht-private_todotitle'>하트의 상태로 목표의 진행 상황을 확인하세요</div>
                             <div className='ht-private_todo'>
                                 <div className='ht-private_todocontents'>분홍색으로 꽉찬 하트는 목표를<br></br>완료 했다는 의미입니다</div>
-                                <div className='ht-private_todocontents'>테두리만 분홍색인 하트는 목표를 진행중이라는 의미입니다 </div>
+                                <div className='ht-private_todocontents'>테두리만 분홍색인 하트는 목표를<br></br>진행중이라는 의미입니다 </div>
                                 <div className='ht-private_todocontents'>하트의 안과 테두리가 하얀색인<br></br>하트는 목표를 아직 시작하지<br></br>않았다는 의미입니다</div>
                             </div>
                         </div>
