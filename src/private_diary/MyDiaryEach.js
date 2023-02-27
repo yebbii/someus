@@ -1,11 +1,7 @@
-import { useState } from 'react';
 import './mydiaryeach.css'
 
-
-
 const MyDiaryEach = ({ list }) => {
-    
-    const [ diaryId, setDiaryId ] = useState(0);
+
     const image = `http://localhost:8080/api/getImage/` + list.diaryImg;
 
     return (
@@ -13,6 +9,7 @@ const MyDiaryEach = ({ list }) => {
             <div className='diaryimg_box'><img className='diaryimg' src={ image } /></div>
             <div className='diarydate'>{ list.createdDt }</div>
         </ div>
+        
     );
 }
 

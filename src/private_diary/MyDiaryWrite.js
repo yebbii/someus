@@ -62,11 +62,11 @@ const MyDiaryWrite = ({ history }) => {
             result.push(
                 <>
                     <img className="privatemood_img"
-                        src={mood[i].moodId == moodActive
-                            ? `/img/mood_${mood[i].moodId}.png`
-                            : `/img/mood_${mood[i].moodId}.png`}
-                        onClick={toggleMoodActive}
-                        alt={mood[i].moodId} />
+                       src={mood[i].moodId == moodActive
+                        ? `/img/moodC_${mood[i].moodId}.png`
+                        : `/img/mood_${mood[i].moodId}.png`}
+                    onClick={toggleMoodActive}
+                    alt={mood[i].moodId} />
                 </>
             );
         } return result;

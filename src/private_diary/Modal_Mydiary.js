@@ -3,14 +3,25 @@ import { useEffect, useState } from "react";
 import './modal_mydiary.css';
 
 const Modal_Mydiary = (props, { history }) => {
-    //모달
+    //모달 
+    const [ diary, setDiary ] = useState({});
+    
+    const [ weather, setWeather ] = useState('');
+    const [ mood, setMood ] = useState('');
+    const [ contents, setContents ] = useState('');
+    const image = `http://localhost:8080/api/getImage/` + props.list.diaryImg;
+
+    const diaryId = props.list.diaryId;
+    
     useEffect(() => {
+        // 모달 화면 설정
         document.body.style.cssText = `a
         position: fixed;
         top: -${window.scrollY}px;
         overflow-y: scroll;
         width: 100%;`;
         
+        // 마운트될 때 diaryid를 기준으로 내용, 기분, 날씨 설정
         console.log(props.list);
         setContents(props.list.diaryContent);
         setMood(props.list.moodId);
@@ -23,42 +34,29 @@ const Modal_Mydiary = (props, { history }) => {
         };
     }, []);
 
-    const modalClose = () => {
-        props.closeModal();
-        console.log(props.closeModal());
-    };
-    //모달끝
-
-    //일기 수정 확인 필요
-    const [ diary, setDiary ] = useState({});
-    
-    const [ weather, setWeather ] = useState('');
-    const [ mood, setMood ] = useState('');
-    const [ contents, setContents ] = useState('');
-    const image = `http://localhost:8080/api/getImage/` + props.list.diaryImg;
-
-    const diaryId = props.list.diaryId;
-    
+    // moodId에 따라 moodImg 설정
     const moodImg = (mood) => {
-        if (mood == 0) { return <img src={`/img/mood_1.png`} className="mood_detail" /> }
-        else if (mood == 1) { return <img src={`/img/mood_2.png`} className="mood_detail" /> }
-        else if (mood == 2) { return <img src={`/img/mood_3.png`} className="mood_detail" /> }
-        else if (mood == 3) { return <img src={`/img/mood_4.png`} className="mood_detail" /> }
-        else if (mood == 4) { return <img src={`/img/mood_5.png`} className="mood_detail" /> }
+        if (mood == 1) { return <img className="mood_detail"src={`/img/moodC_1.png`} /> }
+        else if (mood == 2) { return <img className="mood_detail" src={`/img/moodC_2.png`} /> }
+        else if (mood == 3) { return <img className="mood_detail" src={`/img/moodC_3.png`} /> }
+        else if (mood == 4) { return <img className="mood_detail" src={`/img/moodC_4.png`} /> }
+        else if (mood == 5) { return <img className="mood_detail" src={`/img/moodC_5.png`} /> }
     };
 
+    // weatherId에 따라 weatherImg 설정
     const weatherImg = (weather) => {
-        if (weather == 0) { return <img src={`/img/weather_1.png`} className="weather_detail" /> }
-        else if (weather == 1) { return <img src={`/img/weather_2.png`} className="weather_detail" /> }
-        else if (weather == 2) { return <img src={`/img/weather_3.png`} className="weather_detail" /> }
-        else if (weather == 3) { return <img src={`/img/weather_4.png`} className="weather_detail" /> }
-        else if (weather == 4) { return <img src={`/img/weather_5.png`} className="weather_detail" /> }
-    }
+        if (weather == 1) { return <img className="weather_detail" src={`/img/weather_1.png`} /> }
+        else if (weather == 2) { return <img className="weather_detail" src={`/img/weather_2.png`} /> }
+        else if (weather == 3) { return <img className="weather_detail" src={`/img/weather_3.png`} /> }
+        else if (weather == 4) { return <img className="weather_detail" src={`/img/weather_4.png`} /> }
+        else if (weather == 5) { return <img className="weather_detail" src={`/img/weather_5.png`} /> }
+    };
+
     const hanlderChangeContents = (e) => {
         setContents(e.target.value);
-        console.log(contents);
     };
 
+    // 내용 수정 이벤트 핸들러
     const handlerOnClickUpdate = () => {
         axios.put(`http://localhost:8080/api/someus/private/${diaryId}`,
                     { "diaryContent": contents },
@@ -80,19 +78,15 @@ const Modal_Mydiary = (props, { history }) => {
             })
     };
 
+    // 일기 삭제 이벤트 핸들러
     const handlerOnClickDelete = () => {
         axios.delete(`http://localhost:8080/api/someus/private/${diaryId}`,
         { headers: { 'Authorization' : `Bearer ${ sessionStorage.getItem('token') }`}})
             .then((response) => {
                 if(response.data === 1) {
                     alert(`정상적으로 삭제되었습니다.`);
-                    //리스트 map다시 돌게 리프레쉬 추가 피룡!!!!
-                    // props.setList(prevState => {
-                    //     const updateArray = [...prevState];
-                    //     return updateArray;
-                    // });
-                    //------------------------------------------
                     props.closeModal();
+                    history.push(`/someus/private`);
                 } else {
                     alert(`삭제에 실패했습니다.`);
                     return;
@@ -120,7 +114,6 @@ const Modal_Mydiary = (props, { history }) => {
                             <span>{moodImg(mood)}</span>
                             </div>
                         </div>
-                        
                         <textarea className='dairyContents' value={contents} onChange={hanlderChangeContents}></textarea>
                         
                         <div className="bottom">
